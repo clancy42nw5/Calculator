@@ -12,41 +12,45 @@
     <div class="header">
         <h1>Calculator</h1>
     </div>
-    <div class="calcContainer">
-        <div class="calcDisplay">
-            <div class="display">Hello, World</div>
-        </div>
-        <div class="calcButtonsContainer">
-            <div class="calcArgumentsContainer">
-                <div class="topArgumentsContainer">
-                    <button class="topArguments" id="AC">AC</button>
-                    <button class="topArguments" id="plusMinus">+/-</button>
-                    <button class="topArguments" id="percent">%</button>
+    <div class="heroContainer">
+        <div class="calcContainer">
+            <div class="calcDisplay">
+                <div class="display">Hello, World</div>
+            </div>
+            <div class="calcButtonsContainer">
+                <div class="calcArgumentsContainer">
+                    <div class="topArgumentsContainer">
+                        <button class="baseFunc" id="AC">AC</button>
+                        <button class="baseFunc" id="plusMinus">+/-</button>
+                        <button class="baseFunc" id="percent">%</button>
+                    </div>
+                    <div class="integersContainer">
+                        <button class="integer" id="seven">7</button>
+                        <button class="integer" id="eight">8</button>
+                        <button class="integer" id="nine">9</button>
+                        <button class="integer" id="four">4</button>
+                        <button class="integer" id="five">5</button>
+                        <button class="integer" id="six">6</button>
+                        <button class="integer" id="one">1</button>
+                        <button class="integer" id="two">2</button>
+                        <button class="integer" id="three">3</button>
+                    </div>
+                    <div class="floatContainer">
+                        <button class="integer" id="zero">0</button>
+                        <button class="baseFunc" id="decimalPoint">.</button>
+                    </div>
                 </div>
-                <div class="integersContainer">
-                    <button class="integer" id="seven">7</button>
-                    <button class="integer" id="eight">8</button>
-                    <button class="integer" id="nine">9</button>
-                    <button class="integer" id="four">4</button>
-                    <button class="integer" id="five">5</button>
-                    <button class="integer" id="six">6</button>
-                    <button class="integer" id="one">1</button>
-                    <button class="integer" id="two">2</button>
-                    <button class="integer" id="three">3</button>
-                </div>
-                <div class="floatContainer">
-                    <button class="integer" id="zero">0</button>
-                    <button class="integer" id="decimalPoint">.</button>
+                <div class="calcOperatorContainer">
+                    <button class="operators" id="divide">÷</button>
+                    <button class="operators" id="multiply">X</button>
+                    <button class="operators" id="minus">-</button>
+                    <button class="operators" id="plus">+</button>
+                    <button class="operators" id="equals">=</button>
                 </div>
             </div>
-            <div class="calcOperatorContainer">
-                <button class="operators" id="divide">÷</button>
-                <button class="operators" id="multiply">X</button>
-                <button class="operators" id="minus">-</button>
-                <button class="operators" id="plus">+</button>
-                <button class="operators" id="equals">=</button>
-            </div>
         </div>
+        <button class="explainButton">How does it work?</button>
+        <div class="explanation"></div>
     </div>
     <div class="footer">
         <h2>Copyright Clancy Wilson 2022</h2>
