@@ -2,6 +2,7 @@ const display = document.querySelector('.display');
 
 let userInput = 0
 let bankedNumber = 0
+let operator = null
 
 const intButtons = document.querySelectorAll('.integer');
 intButtons.forEach((button) => {
@@ -11,22 +12,35 @@ intButtons.forEach((button) => {
             userInput = x;
             changeDisplay(userInput);
         } else {
-            userInput = userInput * 1;
-            console.log(userInput)
-            userInput += x;
+            userInput = userInput * 10;
+            userInput += Number(x);
             changeDisplay(userInput);
         } 
     });
 });
 
-/*
 const funcButtons = document.querySelectorAll('.operators');
 funcButtons.forEach((button) => {
     button.addEventListener('click', () => {
-
+        if (bankedNumber == 0) {
+            bankedNumber = userInput;
+            console.log(bankedNumber)
+            userInput = 0;
+            console.log(userInput);
+            operator = button.id
+            console.log(operator);
+        } else {
+            bankedNumber = operation(bankedNumber, userInput);
+            console.log(bankedNumber);
+            userInput = 0;
+            console.log(userInput);
+            operator = button.id;
+            console.log(operator);
+            changeDisplay(bankedNumber);
+        }
+        
     })
 })
-*/
 
 const percentButton = document.querySelectorAll('#percent');
 percentButton.forEach((button) => {
@@ -49,6 +63,27 @@ const changeDisplay = function(x) {
     display.textContent = x;
 }
 
+function operation(x, z) {
+    if (operator = "add") {
+        let result = (x+z);
+        console.log(result)
+        return result;
+    } else if (operator = "subtract") {
+        let result = (x-y);
+        console.log(result)
+        return result;
+    } else if (operator = "multiply") {
+        let result = (x*y);
+        console.log(result)
+        return result;
+    } else if (operator = "divide") {
+        let result = (x/y);
+        console.log(result)
+        return result
+    }
+}
+
+/*
 const add = function(x, y) {
     let z = (x+y);
     return z;
@@ -68,6 +103,8 @@ const divide = function(x, y) {
 	let z = (x/y);
     return z;
 }
+
+*/
 
 /*
 userInput = (x * 1 + y) = x
