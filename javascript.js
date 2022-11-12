@@ -2,7 +2,7 @@ const display = document.querySelector('.display');
 
 let userInput = 0
 let bankedNumber = 0
-let operator = null
+let operator = add
 
 const intButtons = document.querySelectorAll('.integer');
 intButtons.forEach((button) => {
@@ -28,8 +28,8 @@ funcButtons.forEach((button) => {
             } else {
                 bankedNumber = operation(bankedNumber, userInput);
                 changeDisplay(bankedNumber);
-                userInput = 0;
-                operator = null;
+                //userInput = 0;
+                //operator = null;
             }
         } else if (bankedNumber == 0) {
             bankedNumber = userInput;
@@ -67,8 +67,9 @@ decimalButton.forEach((button) => {
         if ((decimalCheck(userInput) == true)) {
             userInput = userInput;
         } else {
-            userInput = (userInput + ".");
-            changeDisplay(userInput);
+            userInput = parseFloat(userInput);
+            console.log(userInput)
+            changeDisplay(parseFloat(userInput));
         }
     })
 })
@@ -97,42 +98,15 @@ const changeDisplay = function(x) {
 function operation(x, y) {
     if (operator === "add") {
         let result = (Number(x) + Number(y));
-        console.log(result)
         return result;
     } else if (operator === "subtract") {
         let result = (Number(x) - Number(y));
-        console.log(result)
         return result;
     } else if (operator === "multiply") {
         let result = (Number(x) * Number(y));
-        console.log(result)
         return result;
     } else if (operator === "divide") {
-        if (Number(y) === "0") {
-            changeDisplay("Infinity")
-        } else {
             let result = (Number(x) / Number(y));
-            console.log(result);
             return result;
         }
     }
-}
-
-/*
-userInput = (x * 1 + y) = x
-bankedNumber = 0
-operator()
-
-As the user enters numbers the inputting() function operates.
-
-When the user selects an operator, the number is pushed to variable "bankedNumber".
-Display bankedNumber.
-
-When an operator is pressed, it must calculate the current number by the last number
-in the array using the current operator (which is addition by default).
-
-Whe equals is pressed, the function() uses that operator on the last index
-in the array, returning the new number to be pushed to the array.
-
-If a FLOAT is returned, it should be rounded to the nearest 10th degree.
-*/
