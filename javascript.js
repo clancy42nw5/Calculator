@@ -22,31 +22,54 @@ intButtons.forEach((button) => {
 const funcButtons = document.querySelectorAll('.operators');
 funcButtons.forEach((button) => {
     button.addEventListener('click', () => {
-        if (bankedNumber == 0) {
+        if (button.id === "equals") {
+            if (operator === null) {
+                changeDisplay(userInput);
+            } else {
+                bankedNumber = operation(bankedNumber, userInput);
+                changeDisplay(bankedNumber);
+                userInput = 0;
+                operator = null;
+            }
+        } else if (bankedNumber == 0) {
             bankedNumber = userInput;
-            console.log(bankedNumber)
             userInput = 0;
-            console.log(userInput);
             operator = button.id
-            console.log(operator);
         } else {
             bankedNumber = operation(bankedNumber, userInput);
-            console.log(bankedNumber);
-            userInput = 0;
-            console.log(userInput);
-            operator = button.id;
-            console.log(operator);
             changeDisplay(bankedNumber);
+            userInput = 0;
+            operator = button.id;
         }
-        
     })
 })
 
 const percentButton = document.querySelectorAll('#percent');
 percentButton.forEach((button) => {
     button.addEventListener('click', () => {
+        if (bankedNumber > 0) {
+            bankedNumber = bankedNumber / 100;
+            changeDisplay(bankedNumber);
+        } else
         userInput = userInput / 100;
         changeDisplay(userInput);
+    })
+})
+
+function decimalCheck(n) {
+   var result = (n - Math.floor(n)) !== 0; 
+   return (result);
+}
+
+const decimalButton = document.querySelectorAll('#decimalPoint');
+decimalButton.forEach((button) => {
+    button.addEventListener('click', () => {
+        if ((decimalCheck(userInput) == true)) {
+            userInput = userInput;
+        } else {
+            userInput = (userInput + ".");
+            changeDisplay(userInput);
+        }
     })
 })
 
@@ -59,52 +82,41 @@ clearAllButton.forEach((button) => {
     })
 })
 
+const clearButton = document.querySelectorAll('#C');
+clearButton.forEach((button) => {
+    button.addEventListener('click', () => {
+        userInput = 0
+        changeDisplay(userInput);
+    })
+})
+
 const changeDisplay = function(x) {
     display.textContent = x;
 }
 
-function operation(x, z) {
-    if (operator = "add") {
-        let result = (x+z);
+function operation(x, y) {
+    if (operator === "add") {
+        let result = (Number(x) + Number(y));
         console.log(result)
         return result;
-    } else if (operator = "subtract") {
-        let result = (x-y);
+    } else if (operator === "subtract") {
+        let result = (Number(x) - Number(y));
         console.log(result)
         return result;
-    } else if (operator = "multiply") {
-        let result = (x*y);
+    } else if (operator === "multiply") {
+        let result = (Number(x) * Number(y));
         console.log(result)
         return result;
-    } else if (operator = "divide") {
-        let result = (x/y);
-        console.log(result)
-        return result
+    } else if (operator === "divide") {
+        if (Number(y) === "0") {
+            changeDisplay("Infinity")
+        } else {
+            let result = (Number(x) / Number(y));
+            console.log(result);
+            return result;
+        }
     }
 }
-
-/*
-const add = function(x, y) {
-    let z = (x+y);
-    return z;
-}
-
-const subtract = function(x, y) {
-	let z = (x-y);
-    return z;
-}
-
-const multiply = function(x, y) {
-    let z = (x*y);
-    return z;
-}
-
-const divide = function(x, y) {
-	let z = (x/y);
-    return z;
-}
-
-*/
 
 /*
 userInput = (x * 1 + y) = x
