@@ -29,8 +29,6 @@ funcButtons.forEach((button) => {
             } else {
                 bankedNumber = operation(bankedNumber, userInput);
                 changeDisplay(bankedNumber);
-                //userInput = 0;
-                //operator = null;
                 isEqualsActive = true;
             }
         } else if (bankedNumber == 0) {
@@ -118,12 +116,3 @@ function operation(x, y) {
             return result;
         }
     }
-
-/*
-
-let isEqualsActive = false
-when "equals" operator is called, isEqualsActive = true
-when "other" operator is called, isEqualsActive = false
-isEqualsActive prevents operators from affecting the bankedNumber
-
-*/
