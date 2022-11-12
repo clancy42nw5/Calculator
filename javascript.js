@@ -5,6 +5,10 @@ let bankedNumber = 0
 let operator = add
 let isEqualsActive = false;
 
+function changeDisplay(x) {
+    display.textContent = x;
+}
+
 const intButtons = document.querySelectorAll('.integer');
 intButtons.forEach((button) => {
     button.addEventListener('click', () => {
@@ -56,14 +60,16 @@ percentButton.forEach((button) => {
         if (bankedNumber > 0) {
             bankedNumber = bankedNumber / 100;
             changeDisplay(bankedNumber);
-        } else
-        userInput = userInput / 100;
-        changeDisplay(userInput);
+        } else {
+            userInput = userInput / 100;
+            changeDisplay(userInput);
+        }
     })
 })
 
 function decimalCheck(n) {
-   var result = (n - Math.floor(n)) !== 0; 
+   var result = (n - Math.floor(n)) !== 0;
+   console.log(result)
    return (result);
 }
 
@@ -73,6 +79,7 @@ decimalButton.forEach((button) => {
         if ((decimalCheck(userInput) == true)) {
             userInput = userInput;
         } else {
+
             userInput = parseFloat(userInput);
             console.log(userInput)
             changeDisplay(parseFloat(userInput));
@@ -96,10 +103,6 @@ clearButton.forEach((button) => {
         changeDisplay(userInput);
     })
 })
-
-const changeDisplay = function(x) {
-    display.textContent = x;
-}
 
 function operation(x, y) {
     if (operator === "add") {

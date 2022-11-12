@@ -38,7 +38,11 @@ button {
 }
 
 #zero {
-    width: 150px;
+    width: 225px;
+}
+
+#decimalPoint {
+    display: none;
 }
 
 body, .header, .footer, .heroContainer, .calcContainer, .calcDisplay, .display, .calcButtonsContainer, .calcOperatorContainer, .calcArgumentsContainer, .topArgumentsContainer, .integersContainer, .floatContainer {
