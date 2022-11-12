@@ -3,6 +3,7 @@ const display = document.querySelector('.display');
 let userInput = 0
 let bankedNumber = 0
 let operator = add
+let isEqualsActive = false;
 
 const intButtons = document.querySelectorAll('.integer');
 intButtons.forEach((button) => {
@@ -30,16 +31,23 @@ funcButtons.forEach((button) => {
                 changeDisplay(bankedNumber);
                 //userInput = 0;
                 //operator = null;
+                isEqualsActive = true;
             }
         } else if (bankedNumber == 0) {
             bankedNumber = userInput;
             userInput = 0;
             operator = button.id
         } else {
-            bankedNumber = operation(bankedNumber, userInput);
-            changeDisplay(bankedNumber);
-            userInput = 0;
-            operator = button.id;
+            if (isEqualsActive === true) {
+                isEqualsActive = false;
+                userInput = 0;
+                operator = button.id;
+            } else {
+                bankedNumber = operation(bankedNumber, userInput);
+                changeDisplay(bankedNumber);
+                userInput = 0;
+                operator = button.id;
+            }
         }
     })
 })
@@ -110,3 +118,12 @@ function operation(x, y) {
             return result;
         }
     }
+
+/*
+
+let isEqualsActive = false
+when "equals" operator is called, isEqualsActive = true
+when "other" operator is called, isEqualsActive = false
+isEqualsActive prevents operators from affecting the bankedNumber
+
+*/

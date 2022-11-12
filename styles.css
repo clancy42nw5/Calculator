@@ -25,7 +25,7 @@ button {
 }
 
 .baseFunc {
-    background-color: rgb(50, 94, 203);
+    background-color: rgb(115, 149, 234);
 }
 
 .integer, #decimalPoint {
@@ -68,14 +68,6 @@ body {
 .calcContainer {
     flex-direction: column;
     align-items: center;
-}
-
-.explainButton {
-    border-radius: 15px;
-    width: 100px;
-    align-self: center;
-    margin-top: 10px;
-    margin-bottom: 10px;
 }
 
 .calcDisplay {
