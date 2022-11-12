@@ -1,0 +1,49 @@
+* {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    padding: 2px;
+    margin: 0px;
+    border: 2px solid red;
+}
+
+body, .header, .footer, .calcContainer, .calcDisplay, .display, .calcButtonsContainer, .calcOperatorContainer, .calcArgumentsContainer, .topArgumentsContainer, .integersContainer, .floatContainer {
+    display: flex;
+}
+
+body {
+    flex-direction: column;
+    align-items: center;
+}
+
+.calcContainer {
+    flex-direction: column;
+}
+
+.calcDisplay {
+    justify-content: flex-end;
+}
+
+.calcButtonsContainer {
+    flex-direction: row;
+}
+
+.calcArgumentsContainer, .calcOperatorContainer {
+    flex-direction: column;
+}
+
+.topArgumentsContainer, .integersContainer, .floatContainer {
+    width: 150px;
+    height: auto;
+}
+
+.integersContainer {
+    flex-wrap: wrap;
+}
+
+.topArguments, .integer, .operators {
+    height: 50px;
+    width: 50px;
+}
+
+.calcOperatorContainer {
+    justify-content: space-between;
+}
