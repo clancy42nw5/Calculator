@@ -1,6 +1,30 @@
 * {
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    border: 0px solid red;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.headerText {
+    font-size: 32px;
+}
+
+.footerText {
+    font-size: 16px;
+}
+
+a:link {
+    text-decoration: none;
+}
+
+a:visited { 
+    text-decoration:none;
+    color: white;
+   }
+
+a:hover {
+    text-decoration: none;
+}
+
+a:active {
+    text-decoration: none;
 }
 
 h1, h2 {
@@ -60,7 +84,9 @@ body {
     flex-direction: row;
     justify-content: center;
     flex: 1;
-    background-color: rgb(15, 43, 108);
+    background-color: #1F2937;
+    color: white;
+    padding: 12px;
 }
 
 .heroContainer {
